@@ -3,59 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aekos Downloads</title>
+    <title>AekoWare Downloads</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/website-icon.png">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <div class="logo">"website logo"</div>
+        <div class="logo">AekoWare<span class="line">|</span></div>
 
         <nav class="tabs">
-            <a href="#spoofer" class="tab active" onclick="showTab('spoofer')">Spoofer</a>
-            <a href="#cheats" class="tab" onclick="showTab('cheats')">Cheats</a>
+            <a href="#home" class="tab active" onclick="showTab('home')">Home</a>
+            <a href="#products" class="tab" onclick="showTab('products')">Products</a>
+            <a href="#showcase" class="tab" onclick="showTab('showcase')">Showcase</a> <!-- New Showcase Tab -->
+            <a href="#tos" class="tab" onclick="showTab('tos')">TOS</a> <!-- TOS Tab -->
         </nav>
 
         <div class="icons">
             <a href="https://discord.com/users/259110516922777600/" target="_blank">
                 <img src="images/discord-icon.png" alt="Discord">
             </a>
-            <a href="https://github.com/Aekora" target="_blank">
-                <img src="images/github-icon.png" alt="GitHub">
-            </a>
         </div>
     </header>
 
     <main>
-        <section id="spoofer" class="tab-content active">
-            <div class="spoofer-info">
-                <p><strong>This spoofer is a powerful anti-detection tool designed to shield your gaming hardware from bans and tracking systems. Whether you’re playing with cheats or mods, our spoofer allows you to bypass hardware bans, ensuring your gaming experience remains secure. With a focus on performance, ease of use, and continuous protection, Stern works across multiple games to keep you safe from anti-cheat systems like BattlEye (BE) and Easy Anti-Cheat (EAC).</strong></p>
-
-                <p>
-                    <strong>
-                        Spoofing BattlEye fine on ALL games!<br>
-                        Find a list of all games using BE here: <a href="https://www.battleye.com" target="_blank">https://www.battleye.com</a>
-                    </strong>
-                </p>
-
-                <p><strong>EAC ANTICHEAT*</strong></p>
-                <p>
-                    <strong>
-                        ✅ APEX LEGENDS<br>
-                        ✅ SQUAD<br>
-                        ✅ BLOODHUNT<br>
-                        ✅ DEAD BY DAYLIGHT<br>
-                        ✅ FORTNITE (Win reinstall can be required)<br>
-                        ✅ SCUM<br>
-                        🟠 RUST (Win reinstall can be required + not tested)
-                    </strong>
-                </p>
+        <!-- Home Tab Content -->
+        <section id="home" class="tab-content active">
+            <div class="welcome-text">
+                <div class="title">Welcome to AekoWare</div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="number">4.99</div>
+                        <div class="label">Feedback Rating</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">7905</div>
+                        <div class="label">Products Sold</div>
+                    </div>
+                    <div class="stat">
+                        <div class="number">1203</div>
+                        <div class="label">Total Customers</div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="cheats" class="tab-content">
-            <p>Cheats content goes here.</p>
+        <!-- Products Tab Content -->
+        <section id="products" class="tab-content">
+            <p>Products content goes here.</p>
+        </section>
+
+        <!-- Showcase Tab Content -->
+        <section id="showcase" class="tab-content">
+            <p>Showcase content goes here.</p>
+        </section>
+
+        <!-- TOS Tab Content -->
+        <section id="tos" class="tab-content">
+            <div class="tos-content">
+                <h2>Terms of Service</h2>
+                <p>By using our services, you agree to the following terms:</p>
+
+                <div class="tos-section">
+                    <h3>License Key Purchase</h3>
+                    <p><strong>1.1 : Product Description:</strong> AekoWare sells online license keys for various software products. The description of each product, including its features and functionalities, is available on the Site.</p>
+                    <p><strong>1.2 : Delivery:</strong> Upon successful payment, you will receive the license key(s) via email. Ensure that the provided email address is accurate to receive timely delivery.</p>
+                </div>
+
+                <div class="tos-section">
+                    <h3>Changes to Terms</h3>
+                    <p><strong>Update of terms:</strong> AekoWare reserves the right to modify or update these Terms at any time. It is your responsibility to review these Terms periodically for changes.</p>
+                </div>
+
+                <div class="tos-section">
+                    <h3>Termination of Service</h3>
+                    <p>We reserve the right to terminate your account if you violate any of these terms.</p>
+                </div>
+            </div>
         </section>
     </main>
 
