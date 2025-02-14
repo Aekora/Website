@@ -33,73 +33,175 @@ main {
     font-weight: bold;
     color: white;
     text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+}
+
+.line {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 24px;
+    color: white;
 }
 
 /* Tabs */
 .tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; /* Align tabs to the left */
     flex-grow: 1;
+    width: 100%;
+    margin-left: 20px; /* Space between logo and tabs */
 }
 
-.tabs a {
-    text-decoration: none;
-    color: white;
-    padding: 12px 25px;
-    font-size: 22px;
-    margin: 0 10px;
-    border: 2px solid transparent;
-    border-radius: 30px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
+    .tabs a {
+        text-decoration: none;
+        color: #B9B9B9;
+        padding: 12px 25px;
+        font-size: 18px;
+        margin: 0 10px;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        background-color: rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
 
-.tabs a:hover {
-    background-color: #444;
-    border-color: #888;
-    transform: translateY(-2px);
-}
+        /* Tab hover effect */
+        .tabs a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
 
-.tabs a.active {
-    background-color: #555;
-    color: #fff;
-    border-color: #fff;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 1);
-}
+        /* Active tab styling */
+        .tabs a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            border-color: #fff;
+        }
 
 /* Icons */
 .icons {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    margin-right: 30px;
 }
 
-.icons a img {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-}
+    .icons a img {
+        width: 42px;
+        height: 42px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
 
-.icons a:hover img {
-    filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
-}
+    .icons a:hover img {
+        filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
+    }
 
 /* Hide content by default */
 .tab-content {
     display: none;
 }
 
-/* Show only active tab content */
-.tab-content.active {
-    display: block;
+    /* Show only active tab content */
+    .tab-content.active {
+        display: block;
+    }
+
+/* Welcome Text Container */
+.welcome-text {
+    display: none;
 }
 
-/* Spoofer Info */
-.spoofer-info {
-    width: 40%;
-    padding: 20px;
-    font-weight: bold;
-    text-align: left;
-    margin-left: 20px;
+/* Show the welcome text and stats section only when the home tab is active */
+#home.active .welcome-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 30%; /* Move it a little higher */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
 }
+
+/* Welcome title */
+.title {
+    font-size: 56px; /* Slightly smaller font size for the title */
+    font-weight: bold;
+    margin-bottom: 30px; /* Increased margin between title and stats */
+}
+
+/* Stats Layout */
+.stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Decreased space between the stats */
+}
+
+/* Individual stat box */
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Stat number */
+.number {
+    font-size: 22px; /* Slightly smaller font size for the numbers */
+    font-weight: bold;
+    margin-bottom: 8px; /* Decreased space between number and label */
+}
+
+/* Stat label */
+.label {
+    font-size: 14px; /* Decreased font size for labels */
+}
+
+/* TOS Content Styling */
+.tos-content {
+    padding: 20px;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+    .tos-content h2 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .tos-content p {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .tos-content strong {
+        font-weight: bold;
+    }
+
+.tos-section {
+    margin-bottom: 25px;
+}
+
+    .tos-section h3 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+.tos-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.tos-content li {
+    margin-bottom: 10px;
+}
+
+    .tos-content li strong {
+        font-weight: bold;
+    }
