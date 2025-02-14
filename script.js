@@ -17,7 +17,7 @@ function showTab(tabId) {
     document.querySelector(`[href="#${tabId}"]`).classList.add('active');
 }
 
-// Ensure "Spoofer" is the default active tab
+// Ensure "Home" is the default active tab
 document.addEventListener("DOMContentLoaded", () => {
-    showTab('spoofer');
+    showTab('home');
 });
