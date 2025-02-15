@@ -1,12 +1,19 @@
 // Function to handle tab switching
 function showTab(tabId) {
-    // Hide all tab contents
+    // Hide all tab contents with a fade-out effect
     document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.classList.remove('active');
+        tab.style.opacity = 0;
+        setTimeout(() => {
+            tab.classList.remove('active');
+        }, 300); // Match the transition duration
     });
 
-    // Show the selected tab
-    document.getElementById(tabId).classList.add('active');
+    // Show the selected tab with a fade-in effect
+    const activeTab = document.getElementById(tabId);
+    setTimeout(() => {
+        activeTab.classList.add('active');
+        activeTab.style.opacity = 1;
+    }, 300);
 
     // Update active tab styling
     document.querySelectorAll('.tabs a').forEach(tab => {
