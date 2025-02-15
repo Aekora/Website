@@ -1,11 +1,28 @@
 /* General body styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
+    background: linear-gradient(-45deg, #000000, #0a0a0a, #000000, #0a0a0a);
+    background-size: 400% 400%;
+    animation: gradientBG 60s ease infinite;
     margin: 0;
     padding: 0;
     color: white;
-    overflow-x: hidden; /* Prevents shifting */
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Header styles */
@@ -47,31 +64,29 @@ main {
 /* Tabs */
 .tabs {
     display: flex;
-    justify-content: flex-start; /* Align tabs to the left */
+    justify-content: flex-start;
     flex-grow: 1;
     width: 100%;
-    margin-left: 20px; /* Space between logo and tabs */
+    margin-left: 20px;
 }
 
     .tabs a {
         text-decoration: none;
         color: #B9B9B9;
-        padding: 12px 25px;
-        font-size: 18px;
-        margin: 0 10px;
+        padding: 10px 20px;
+        font-size: 16px;
+        margin: 0 5px;
         border: 2px solid transparent;
         border-radius: 30px;
         background-color: rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
     }
 
-        /* Tab hover effect */
         .tabs a:hover {
             background-color: rgba(255, 255, 255, 0.1);
             color: #fff;
         }
 
-        /* Active tab styling */
         .tabs a.active {
             background-color: rgba(255, 255, 255, 0.3);
             color: #fff;
@@ -87,24 +102,28 @@ main {
 }
 
     .icons a img {
-        width: 42px;
-        height: 42px;
+        width: 36px;
+        height: 36px;
         object-fit: contain;
         filter: brightness(0) invert(1);
+        transition: transform 0.3s ease, filter 0.3s ease;
     }
 
     .icons a:hover img {
         filter: invert(30%) sepia(100%) saturate(500%) hue-rotate(200deg);
+        transform: scale(1.1);
     }
 
 /* Hide content by default */
 .tab-content {
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
-    /* Show only active tab content */
     .tab-content.active {
         display: block;
+        opacity: 1;
     }
 
 /* Welcome Text Container */
@@ -112,14 +131,13 @@ main {
     display: none;
 }
 
-/* Show the welcome text and stats section only when the home tab is active */
 #home.active .welcome-text {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 30%; /* Move it a little higher */
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -128,9 +146,9 @@ main {
 
 /* Welcome title */
 .title {
-    font-size: 56px; /* Slightly smaller font size for the title */
+    font-size: 48px;
     font-weight: bold;
-    margin-bottom: 30px; /* Increased margin between title and stats */
+    margin-bottom: 20px;
 }
 
 /* Stats Layout */
@@ -138,7 +156,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Decreased space between the stats */
+    gap: 20px;
 }
 
 /* Individual stat box */
@@ -150,14 +168,14 @@ main {
 
 /* Stat number */
 .number {
-    font-size: 22px; /* Slightly smaller font size for the numbers */
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 8px; /* Decreased space between number and label */
+    margin-bottom: 5px;
 }
 
 /* Stat label */
 .label {
-    font-size: 14px; /* Decreased font size for labels */
+    font-size: 12px;
 }
 
 /* TOS Content Styling */
@@ -170,38 +188,124 @@ main {
 }
 
     .tos-content h2 {
-        font-size: 32px;
-        margin-bottom: 20px;
+        font-size: 28px;
+        margin-bottom: 15px;
     }
 
     .tos-content p {
-        font-size: 16px;
-        margin-bottom: 15px;
+        font-size: 14px;
+        margin-bottom: 10px;
     }
 
     .tos-content strong {
         font-weight: bold;
+        color: #ffcc00;
     }
 
 .tos-section {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
 }
 
     .tos-section h3 {
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
+        margin-bottom: 10px;
+        color: #ffcc00;
+    }
+
+/* Showcase Tab Message */
+.unavailable-message {
+    text-align: center;
+    font-size: 18px;
+    color: #B9B9B9;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    /* Header */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+        .tabs a {
+            margin: 5px 0;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+    .icons {
+        margin-right: 0;
+        margin-top: 10px;
+    }
+
+    /* Welcome Text */
+    .welcome-text {
+        top: 20%;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    /* Stats */
+    .stats {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .stat {
         margin-bottom: 10px;
     }
 
-.tos-content ul {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-
-.tos-content li {
-    margin-bottom: 10px;
-}
-
-    .tos-content li strong {
-        font-weight: bold;
+    .number {
+        font-size: 16px;
     }
+
+    .label {
+        font-size: 12px;
+    }
+
+    /* TOS Content */
+    .tos-content {
+        padding: 10px;
+    }
+
+        .tos-content h2 {
+            font-size: 24px;
+        }
+
+        .tos-content p {
+            font-size: 14px;
+        }
+
+    /* Showcase Message */
+    .unavailable-message {
+        font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 10px;
+    }
+}
