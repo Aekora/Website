@@ -6,23 +6,30 @@
     <title>AekoWare Downloads</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/png" href="images/website-icon.png">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.8/countUp.min.js"></script>
 </head>
 <body>
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+
     <header>
-        <div class="logo">AekoWare<span class="line">|</span></div>
+        <div class="logo">
+            AekoWare<span class="line">|</span>
+        </div>
 
         <nav class="tabs">
             <a href="#home" class="tab active" onclick="showTab('home')">Home</a>
             <a href="#products" class="tab" onclick="showTab('products')">Products</a>
             <a href="#showcase" class="tab" onclick="showTab('showcase')">Showcase</a>
             <a href="#tos" class="tab" onclick="showTab('tos')">TOS</a>
-            <a href="#Feedback" class="tab" onclick="showTab('Feedback')">Feedback</a>
         </nav>
 
         <div class="icons">
-            <a href="https://discord.com/users/259110516922777600/" target="_blank">
-                <img src="images/discord-icon.png" alt="Discord">
+            <!-- Cart Icon -->
+            <a href="#" id="cart-icon" title="Cart">
+                <img src="images/cart-icon.png" alt="Cart">
+                <span id="cart-count">0</span>
             </a>
         </div>
     </header>
@@ -34,16 +41,46 @@
                 <div class="title">Welcome to AekoWare</div>
                 <div class="stats">
                     <div class="stat">
-                        <div class="number">4.99</div>
+                        <i class="fas fa-star"></i>
+                        <div class="number" id="rating-number">4.99</div>
                         <div class="label">Feedback Rating</div>
                     </div>
                     <div class="stat">
-                        <div class="number">7905</div>
+                        <i class="fas fa-shopping-cart"></i>
+                        <div class="number" id="products-sold-number">634</div>
                         <div class="label">Products Sold</div>
                     </div>
                     <div class="stat">
-                        <div class="number">1203</div>
+                        <i class="fas fa-users"></i>
+                        <div class="number" id="customers-number">203</div>
                         <div class="label">Total Customers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose Us Section -->
+            <div class="why-choose-us">
+                <div class="title">Why Choose Us?</div>
+                <div class="reasons">
+                    <div class="reason">
+                        <i class="fas fa-shield-alt"></i>
+                        <div class="reason-title">Secure & Reliable</div>
+                        <div class="reason-description">Our products are tested and trusted by thousands of users worldwide.</div>
+                    </div>
+                    <div class="reason">
+                        <i class="fas fa-headset"></i>
+                        <div class="reason-title">24/7 Support</div>
+                        <div class="reason-description">We offer round-the-clock support to assist you with any issues.</div>
+                    </div>
+                    <div class="reason">
+                        <i class="fas fa-tags"></i>
+                        <div class="reason-title">Affordable Pricing</div>
+                        <div class="reason-description">Get premium features at competitive prices.</div>
+                    </div>
+                    <div class="reason">
+                        <i class="fas fa-sync-alt"></i>
+                        <div class="reason-title">Regular Updates</div>
+                        <div class="reason-description">We continuously update our products to ensure compatibility and performance.</div>
                     </div>
                 </div>
             </div>
@@ -51,11 +88,74 @@
 
         <!-- Products Tab Content -->
         <section id="products" class="tab-content">
-            <div class="product-icons">
-                <img src="images/cs-icon.png" alt="CS Icon">
-                <img src="images/fortnite-icon.png" alt="Fortnite Icon">
-                <img src="images/rust-icon.png" alt="Rust Icon">
-                <img src="images/spoofer-icon.png" alt="Spoofer Icon">
+            <div class="choose-game-text">Choose a game</div>
+            <div class="product-grid">
+                <!-- CS2 Product Card -->
+                <div class="product-card" id="csgo-card" data-product-id="csgo">
+                    <div class="product-image">
+                        <img src="images/cs-icon.png" alt="CS2">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">CS2</div>
+                        <div class="product-price">Starting from 20€</div>
+                    </div>
+                </div>
+
+                <!-- Fortnite Product Card -->
+                <div class="product-card" id="fortnite-card" data-product-id="fortnite">
+                    <div class="product-image">
+                        <img src="images/fortnite-icon.png" alt="Fortnite">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Fortnite</div>
+                        <div class="product-price">Starting from 8€</div>
+                    </div>
+                </div>
+
+                <!-- Rust Product Card -->
+                <div class="product-card" id="rust-card" data-product-id="rust">
+                    <div class="product-image">
+                        <img src="images/rust-icon.png" alt="Rust">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Rust</div>
+                        <div class="product-price">Starting from 8€</div>
+                    </div>
+                </div>
+
+                <!-- Spoofer Product Card -->
+                <div class="product-card" id="spoofer-card" data-product-id="spoofer">
+                    <div class="product-image">
+                        <img src="images/spoofer-icon.png" alt="Spoofer">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">Spoofer</div>
+                        <div class="product-price">Starting from 15€</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Purchase Window -->
+            <div id="purchase-window" class="purchase-window" style="display: none;">
+                <div class="purchase-container">
+                    <div class="product-image-container">
+                        <img id="purchase-image" src="" alt="Product Image">
+                    </div>
+                    <div class="product-info-container">
+                        <h2 id="purchase-name"></h2>
+                        <div class="duration-selector">
+                            <label for="duration-dropdown">Select Duration:</label>
+                            <select id="duration-dropdown">
+                                <!-- Options will be dynamically populated here -->
+                            </select>
+                        </div>
+
+                        <div class="purchase-actions">
+                            <button class="buy-button" onclick="handlePurchase()">Add to Cart</button>
+                            <button class="back-button" onclick="closePurchaseWindow()">Back to Products</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -66,13 +166,6 @@
             </div>
         </section>
 
-        <!-- Feedback Tab Content -->
-        <section id="Feedback" class="tab-content">
-            <div class="showcase-container">
-                <p class="unavailable-message">Feedback is currently unavailable.</p>
-            </div>
-        </section>
-
         <!-- TOS Tab Content -->
         <section id="tos" class="tab-content">
             <div class="tos-content">
@@ -80,25 +173,39 @@
                 <p>By using our services, you agree to the following terms:</p>
 
                 <div class="tos-section">
-                    <h3>License Key Purchase</h3>
-                    <p><strong>1.1 : Product Description:</strong> AekoWare sells online license keys for various software products. The description of each product, including its features and functionalities, is available on the Site.</p>
-                    <p><strong>1.2 : Delivery:</strong> Upon successful payment, you will receive the license key(s) via email. Ensure that the provided email address is accurate to receive timely delivery.</p>
+                    <h3 onclick="toggleSection(this)">License Key Purchase</h3>
+                    <div class="content">
+                        <p><strong>1.1 : Product Description:</strong> AekoWare sells online license keys for various software products. The description of each product, including its features and functionalities, is available on the Site.</p>
+                        <p><strong>1.2 : Delivery:</strong> Upon successful payment, you will receive the license key(s) via email. Ensure that the provided email address is accurate to receive timely delivery.</p>
+                    </div>
                 </div>
 
                 <div class="tos-section">
-                    <h3>Changes to Terms</h3>
-                    <p><strong>Update of terms:</strong> AekoWare reserves the right to modify or update these Terms at any time. It is your responsibility to review these Terms periodically for changes.</p>
+                    <h3 onclick="toggleSection(this)">Changes to Terms</h3>
+                    <div class="content">
+                        <p><strong>Update of terms:</strong> AekoWare reserves the right to modify or update these Terms at any time. It is your responsibility to review these Terms periodically for changes.</p>
+                    </div>
                 </div>
 
                 <div class="tos-section">
-                    <h3>Termination of Service</h3>
-                    <p>We reserve the right to terminate your account if you violate any of these terms.</p>
+                    <h3 onclick="toggleSection(this)">Termination of Service</h3>
+                    <div class="content">
+                        <p>We reserve the right to terminate your account if you violate any of these terms.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <h2>Your Cart</h2>
+            <div id="cart-items"></div>
+            <button class="close-cart" onclick="closeCart()">Close</button>
+        </div>
+    </div>
+
     <footer>
         <!-- Footer content removed -->
     </footer>
