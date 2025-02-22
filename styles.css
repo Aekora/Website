@@ -1,9 +1,7 @@
 /* General body styles */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(-45deg, #000000, #0a0a0a, #000000, #0a0a0a);
-    background-size: 400% 400%;
-    animation: gradientBG 60s ease infinite;
+    background: #000000; /* Solid black background */
     margin: 0;
     padding: 0;
     color: white;
@@ -11,20 +9,6 @@ body {
     line-height: 1.6;
     box-sizing: border-box;
     scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
 }
 
 /* Header styles */
@@ -155,6 +139,7 @@ header {
     width: 90%;
     max-width: 500px;
     color: white;
+    position: relative; /* For positioning the close button */
 }
 
     .cart-content h2 {
@@ -163,30 +148,55 @@ header {
         color: #D4AF37;
     }
 
+/* Close Button (Small X at top right) */
+.close-cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #D4AF37;
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .close-cart:hover {
+        color: #c5a22e;
+    }
+
 #cart-items {
     margin-bottom: 20px;
 }
 
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+.cart-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #D4AF37;
+    margin-bottom: 20px;
 }
 
-.close-cart {
-    background: #D4AF37;
+/* Proceed to Checkout Button (Smaller) */
+.checkout-button {
+    background: #28a745; /* Green color for checkout */
     color: #000;
     border: none;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Smaller padding */
     border-radius: 6px;
-    font-size: 16px;
+    font-size: 14px; /* Smaller font size */
     cursor: pointer;
     transition: all 0.3s ease;
+    width: 100%; /* Full width */
 }
 
-    .close-cart:hover {
-        background: #c5a22e;
+    .checkout-button:hover {
+        background: #218838; /* Darker green on hover */
     }
 
 /* Tab content */
@@ -548,7 +558,6 @@ header {
     color: white;
     border: 1px solid rgba(212, 175, 55, 0.3);
     font-size: 16px;
-    width: 100%;
     transition: all 0.3s ease;
     appearance: none; /* Remove default arrow */
     -webkit-appearance: none; /* Remove default arrow for Safari */
@@ -675,3 +684,95 @@ header {
         font-size: 16px; /* Icon size */
         color: white; /* Icon color */
     }
+
+/* Checkout Page Styles */
+#checkout {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(30, 30, 30, 0.95);
+    border-radius: 12px;
+    color: white;
+}
+
+    #checkout h2 {
+        font-size: 36px;
+        color: #D4AF37;
+        margin-bottom: 20px;
+    }
+
+#checkout-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    #checkout-items td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 16px;
+        vertical-align: middle; /* Align all content vertically in the middle */
+    }
+
+.checkout-product-icon {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.remove-item {
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+    .remove-item:hover {
+        background: #ff1a1a;
+    }
+
+#checkout-total {
+    font-size: 24px;
+    font-weight: bold;
+    color: #D4AF37;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Product Name and Duration */
+.product-name-duration {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.duration {
+    font-size: 14px;
+    color: #B9B9B9;
+}
+
+/* Price and Quantity Labels */
+.price-label,
+.quantity-label {
+    font-size: 12px;
+    color: #B9B9B9;
+    margin-bottom: 5px;
+}
+
+.price-value,
+.quantity-value {
+    font-size: 16px;
+    color: white;
+}
